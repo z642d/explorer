@@ -114,6 +114,8 @@ app.set('locale', locale);
 app.set('display', settings.display);
 app.set('markets', settings.markets);
 app.set('twitter', settings.twitter);
+app.set('telegram', settings.telegram);
+app.set('bitcointalk',settings.bitcointalk);
 app.set('genesis_block', settings.genesis_block);
 app.set('index', settings.index);
 app.set('heavy', settings.heavy);

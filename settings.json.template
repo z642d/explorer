@@ -66,9 +66,12 @@
     "twitter": true,
     "facebook": false,
     "googleplus": false,
+    "telegram":false,
+    "bitcointalk":false,
     "search": true,
     "movement": true,
     "network": true
+
   },
 
   // index page (valid options for difficulty are POW, POS or Hybrid)
@@ -118,6 +121,8 @@
   "twitter": "iquidus",
   "facebook": "yourfacebookpage",
   "googleplus": "yourgooglepluspage",
+  "telegram": "yourtelegramgroup",
+  "bitcointalk": "yourbtctopic",
 
   //genesis
   "genesis_tx": "65f705d2f385dc85763a317b3ec000063003d6b039546af5d8195a5ec27ae410",
