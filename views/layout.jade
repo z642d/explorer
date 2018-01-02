@@ -127,9 +127,17 @@ html
                   span.menu-text #{settings.locale.menu_api}
     .col-md-12
       .row.text-center
-        .col-md-2.col-md-offset-1
-          .panel.panel-default.hidden-sm.hidden-xs
-            .panel-heading
+
+        .col-md-2
+         if settings.logoref
+          a(href='#{settings.logoref}' target='_blank') #[img(src='#{settings.logo}', style='height:100px;'  )]
+         else 
+          img(src='#{settings.logo}', style='height:100px;' )
+
+        .col-md-7
+         table.table-hover.table-bordered
+          tr
+           td 
               if settings.nethash_units == 'K'
                 strong #{settings.locale.network} (KH/s)
               else if settings.nethash_units == 'M'
@@ -143,51 +151,50 @@ html
               else if settings.nethash_units == 'H'
                 strong #{settings.locale.network} (H/s)
               else if settings.nethash_units == 'POS'
-                strong #{settings.locale.network} (Weight)
-
-            .panel-body
+                strong #{settings.locale.network} weight
+           td(align='left')
               if settings.index.difficulty == 'Hybrid'
                label#hashrate - 
                <br>
                label#lblX1  
               else  
                label#hashrate - 
-        .col-md-2
-          .panel.panel-default.hidden-sm.hidden-xs
-            .panel-heading
-              strong #{settings.locale.difficulty}
-            .panel-body
+          tr
+           td
+            strong #{settings.locale.difficulty}
+           td(align='left')
+
               if settings.index.difficulty == 'Hybrid'
                label#difficulty -
                <br>
                label#difficultyHybrid -
               else
                label#difficulty -
-        .col-md-2.col-sm-12
-          img(src='#{settings.logo}', style='margin-top:-15px;height:128px;')
-        .col-md-2
-          .panel.panel-default.hidden-sm.hidden-xs
-            .panel-heading
+          tr
+           td
               strong #{settings.locale.ex_supply} (#{settings.symbol})
-            .panel-body
+           td(align='left')
               if settings.index.difficulty == 'Hybrid'
                label#supply - 
                <br>
                label#lblX1
               else
                label#supply -  
-        .col-md-2
-          .panel.panel-default.hidden-sm.hidden-xs
-            .panel-heading
+
+          tr
+           td
               strong #{settings.markets.exchange} Price
-            .panel-body
+           td(align='left')
               if settings.index.difficulty == 'Hybrid'
                label#lastPrice -
                <br>
                label#lblX1
               else
                label#lastPrice - 
-                 
+
+
+               
+
       .row.text-center(style='margin-top:10px;margin-bottom:20px;')
         form.form-inline(method='post', action='/search')      
           #index-search.form-group

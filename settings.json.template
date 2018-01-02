@@ -18,6 +18,10 @@
   // logo
   "logo": "/images/logo.png",
 
+  //logo hyperlink - if not set, logo will not be clickable
+  "logoref": "http://tokyocoin.info",
+
+
   // favicon
   "favicon": "public/favicon.ico",
 
