@@ -202,7 +202,7 @@ html
             button.btn.btn-success(type='submit') #{settings.locale.ex_search_button}
     block content
     .navbar.navbar-default.navbar-fixed-bottom.hidden-xs
-      .col-md-4
+      .col-md-2
 
         if settings.display.twitter
           ul.nav.navbar-nav
@@ -239,12 +239,18 @@ html
                 
 
 
-      .col-md-4
+      .col-md-7
         ul.nav
           li.text-center(style='margin-left:80px;margin-right:80px;')
             p(style='margin-top:15px;') 
-              a.navbar-link(href='https://github.com/iquidus/explorer', target='_blank') Powered by Iquidus Explorer 
+              a.navbar-link(href='https://yobit.io/en/trade/TOKC/BTC/?bonus=whywA' , target='_blank') Buy TOKC on Yobit!
+              br
+              span Donations appreciated to TXMbdziu3tL5R4BT9QoVqgQYkeFRnNYsSE
+
+
+
       span.connections
+        label#[a.navbar-link(href='https://github.com/iquidus/explorer', target='_blank') Powered by Iquidus Explorer *]
         label#lblBlockcount.label.label-default -
         label#lblConnections.label.label-default -
 
