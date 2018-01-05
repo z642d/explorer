@@ -1,6 +1,6 @@
 #!/bin/bash
 
-explorerDir=/usr/lib/node_modules/explorer
+tokyocoinexplorerDir=/usr/lib/node_modules/tokyocoinexplorer
 
-cd "${explorerDir}" || exit $?
+cd "${tokyocoinexplorerDir}" || exit $?
 node --stack-size=16384 scripts/peers.js
