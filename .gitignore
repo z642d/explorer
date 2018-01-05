@@ -29,8 +29,8 @@ node_modules
 #settings.json
 .idea
 *~
-*.ico
-*.png
+
+
 
 package.json 
 package-lock.json 
