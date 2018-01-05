@@ -1,0 +1,2 @@
+MAILTO=""
+*/3 * * * * /usr/local/bin/tokyocoin_peers.sh ; /usr/local/bin/tokyocoin_market.sh
