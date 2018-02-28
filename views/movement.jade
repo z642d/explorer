@@ -34,8 +34,8 @@ block content
       var minamount=#{min_amount};
       if(matches) 
        {
-        minamount=matches[1];
-        if (minamount<#{min_amount}) minamount=#{min_amount};
+        minamount=parseFloat(matches[1]);
+        if (!minamount || (minamount<#{min_amount})) minamount=#{min_amount};
        }
       var rtable = $('#alerts-table').dataTable( {  
         autoWidth: false,      
