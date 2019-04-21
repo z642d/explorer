@@ -1,29 +1,88 @@
 {
+  "_args": [
+    [
+      {
+        "raw": "https://github.com/z642d/tokyocoinexplorer",
+        "scope": null,
+        "escapedName": null,
+        "name": null,
+        "rawSpec": "https://github.com/z642d/tokyocoinexplorer",
+        "spec": "git+https://github.com/z642d/tokyocoinexplorer.git",
+        "type": "hosted",
+        "hosted": {
+          "type": "github",
+          "ssh": "git@github.com:z642d/tokyocoinexplorer.git",
+          "sshUrl": "git+ssh://git@github.com/z642d/tokyocoinexplorer.git",
+          "httpsUrl": "git+https://github.com/z642d/tokyocoinexplorer.git",
+          "gitUrl": "git://github.com/z642d/tokyocoinexplorer.git",
+          "shortcut": "github:z642d/tokyocoinexplorer",
+          "directUrl": "https://raw.githubusercontent.com/z642d/tokyocoinexplorer/master/package.json"
+        }
+      },
+      "/root"
+    ]
+  ],
+  "_from": "git+https://github.com/z642d/tokyocoinexplorer.git",
+  "_id": "tokyocoinexplorer@1.6.1",
+  "_inCache": true,
+  "_location": "/tokyocoinexplorer",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "https://github.com/z642d/tokyocoinexplorer",
+    "scope": null,
+    "escapedName": null,
+    "name": null,
+    "rawSpec": "https://github.com/z642d/tokyocoinexplorer",
+    "spec": "git+https://github.com/z642d/tokyocoinexplorer.git",
+    "type": "hosted",
+    "hosted": {
+      "type": "github",
+      "ssh": "git@github.com:z642d/tokyocoinexplorer.git",
+      "sshUrl": "git+ssh://git@github.com/z642d/tokyocoinexplorer.git",
+      "httpsUrl": "git+https://github.com/z642d/tokyocoinexplorer.git",
+      "gitUrl": "git://github.com/z642d/tokyocoinexplorer.git",
+      "shortcut": "github:z642d/tokyocoinexplorer",
+      "directUrl": "https://raw.githubusercontent.com/z642d/tokyocoinexplorer/master/package.json"
+    }
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "git+https://github.com/z642d/tokyocoinexplorer.git#bc6586d919d5ca300dd86fd6deb346a907fb3769",
+  "_shasum": "b757c49c0cc4d28673a44cd8315875661848e329",
+  "_shrinkwrap": null,
+  "_spec": "https://github.com/z642d/tokyocoinexplorer",
+  "_where": "/root",
+  "dependencies": {
+    "bitcoin-node-api": "0.1.0",
+    "body-parser": "~1.0.0",
+    "cookie-parser": "~1.0.1",
+    "debug": "~0.7.4",
+    "express": "~4.2.0",
+    "jade": "~1.3.0",
+    "jsonminify": "0.2.3",
+    "markdown-js": "0.0.3",
+    "mongodb": "2.0.45",
+    "mongoose": "4.1.10",
+    "morgan": "~1.0.0",
+    "qr-image": "~2.0.0",
+    "request": "2.74.0",
+    "static-favicon": "~1.0.0"
+  },
+  "description": "Iquidus Explorer - 1.6.1 ================",
+  "devDependencies": {
+    "jasmine": "~2.1.0"
+  },
+  "gitHead": "bc6586d919d5ca300dd86fd6deb346a907fb3769",
   "name": "tokyocoinexplorer",
-  "version": "1.6.1",
+  "optionalDependencies": {},
   "private": true,
+  "readme": "Iquidus Explorer - 1.6.1\n================\n\nAn open source block explorer written in node.js.\n\n### See it in action\n\n*  [Jumbucks](http://explorer.getjumbucks.com)\n*  [Sphere](http://sphere.iquidus.io)\n*  [SAR](http://explorer.sarcoin.info)\n*  [Vanillacoin](https://blockchain.vanillacoin.net/)\n*  [Neoscoin](http://explorer.infernopool.com/)  \n*  [C2Chain](http://c2chain.info/)\n*  [Tokyocoin](http://tokyocoin.xyz)\n\n*note: If you would like your instance mentioned here contact me*\n\n### Requires\n\n*  node.js >= 0.10.28\n*  mongodb 2.6.x\n*  *coind\n\n### Create database\n\nEnter MongoDB cli:\n\n    $ mongo\n\nCreate databse:\n\n    > use explorerdb\n\nCreate user with read/write access:\n\n    > db.createUser( { user: \"iquidus\", pwd: \"3xp!0reR\", roles: [ \"readWrite\" ] } )\n\n*note: If you're using mongo shell 2.4.x, use the following to create your user:\n\n    > db.addUser( { user: \"username\", pwd: \"password\", roles: [ \"readWrite\"] })\n\n### Get the source\n\n    git clone https://github.com/iquidus/explorer explorer\n\n### Install node modules\n\n    cd explorer && npm install --production\n\n### Configure\n\n    cp ./settings.json.template ./settings.json\n\n*Make required changes in settings.json*\n\n### Start Explorer\n\n    npm start\n\n*note: mongod must be running to start the explorer*\n\nAs of version 1.4.0 the explorer defaults to cluster mode, forking an instance of its process to each cpu core. This results in increased performance and stability. Load balancing gets automatically taken care of and any instances that for some reason die, will be restarted automatically. For testing/development (or if you just wish to) a single instance can be launched with\n\n    node --stack-size=10000 bin/instance\n\nTo stop the cluster you can use\n\n    npm stop\n\n### Syncing databases with the blockchain\n\nsync.js (located in scripts/) is used for updating the local databases. This script must be called from the explorers root directory.\n\n    Usage: node scripts/sync.js [database] [mode]\n\n    database: (required)\n    index [mode] Main index: coin info/stats, transactions & addresses\n    market       Market data: summaries, orderbooks, trade history & chartdata\n\n    mode: (required for index database only)\n    update       Updates index from last sync to current block\n    check        checks index for (and adds) any missing transactions/addresses\n    reindex      Clears index then resyncs from genesis to current block\n\n    notes:\n    * 'current block' is the latest created block when script is executed.\n    * The market database only supports (& defaults to) reindex mode.\n    * If check mode finds missing data(ignoring new data since last sync),\n      index_timeout in settings.json is set too low.\n\n\n*It is recommended to have this script launched via a cronjob at 1+ min intervals.*\n\nAlso scripts/sync.js index update can be called from your coind when new block appears\nFor this, use -blocknotify parameter and example scripts from contrib/scripts\n\n\n**crontab**\n\n*Example crontab; update index every minute and market data every 2 minutes*\n\n    */1 * * * * cd /path/to/explorer && /usr/bin/nodejs scripts/sync.js index update > /dev/null 2>&1\n    */2 * * * * cd /path/to/explorer && /usr/bin/nodejs scripts/sync.js market > /dev/null 2>&1\n    */5 * * * * cd /path/to/explorer && /usr/bin/nodejs scripts/peers.js > /dev/null 2>&1\n\n### Wallet\n\nIquidus Explorer is intended to be generic so it can be used with any wallet following the usual standards. The wallet must be running with atleast the following flags\n\n    -daemon -txindex\n\n### Donate\n\n    BTC: 168hdKA3fkccPtkxnX8hBrsxNubvk4udJi\n    JBS: JZp9893FMmrm1681bDuJBU7c6w11kyEY7D\n\n### Known Issues\n\n**script is already running.**\n\nIf you receive this message when launching the sync script either a) a sync is currently in progress, or b) a previous sync was killed before it completed. If you are certian a sync is not in progress remove the index.pid from the tmp folder in the explorer root directory.\n\n    rm tmp/index.pid\n\n**exceeding stack size**\n\n    RangeError: Maximum call stack size exceeded\n\nNodes default stack size may be too small to index addresses with many tx's. If you experience the above error while running sync.js the stack size needs to be increased.\n\nTo determine the default setting run\n\n    node --v8-options | grep -B0 -A1 stack_size\n\nTo run sync.js with a larger stack size launch with\n\n    node --stack-size=[SIZE] scripts/sync.js index update\n\nWhere [SIZE] is an integer higher than the default.\n\n*note: SIZE will depend on which blockchain you are using, you may need to play around a bit to find an optimal setting*\n\n### License\n\nCopyright (c) 2015, Iquidus Technology  \nCopyright (c) 2015, Luke Williams  \nAll rights reserved.\n\nRedistribution and use in source and binary forms, with or without\nmodification, are permitted provided that the following conditions are met:\n\n* Redistributions of source code must retain the above copyright notice, this\n  list of conditions and the following disclaimer.\n\n* Redistributions in binary form must reproduce the above copyright notice,\n  this list of conditions and the following disclaimer in the documentation\n  and/or other materials provided with the distribution.\n\n* Neither the name of Iquidus Technology nor the names of its\n  contributors may be used to endorse or promote products derived from\n  this software without specific prior written permission.\n\nTHIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS \"AS IS\"\nAND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE\nIMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE\nDISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE\nFOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL\nDAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR\nSERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER\nCAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,\nOR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE\nOF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\n",
+  "readmeFilename": "README.md",
   "scripts": {
     "start": "node --stack-size=10000 ./bin/cluster",
     "stop": "for /f %q in (tmp/cluster.pid) do kill -f %q",
     "test": "node ./node_modules/jasmine/bin/jasmine.js"
   },
-  "dependencies": {
-    "express": "~4.2.0",
-    "static-favicon": "~1.0.0",
-    "morgan": "~1.0.0",
-    "cookie-parser": "~1.0.1",
-    "body-parser": "~1.0.0",
-    "debug": "~0.7.4",
-    "jade": "~1.3.0",
-    "bitcoin-node-api": "0.1.0",
-    "request": "2.74.0",
-    "jsonminify": "0.2.3",
-    "mongodb": "2.0.45",
-    "mongoose": "4.1.10",
-    "markdown-js": "0.0.3",
-    "qr-image": "~2.0.0"
-  },
-  "devDependencies": {
-    "jasmine": "~2.1.0"
-  }
+  "version": "1.6.1"
 }

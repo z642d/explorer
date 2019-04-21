@@ -54,7 +54,43 @@ html
         }, 60000);
         update_stats();
       });
+
+    script(type='text/javascript').
+     (function (d, w, c) {
+     (w[c] = w[c] || []).push(function() {
+     try {
+     w.yaCounter47221251 = new Ya.Metrika({
+     id:47221251,
+     clickmap:true,
+     trackLinks:true,
+     accurateTrackBounce:true
+     });
+     } catch(e) { }
+     });
+     var n = d.getElementsByTagName("script")[0],
+     s = d.createElement("script"),
+     f = function () { n.parentNode.insertBefore(s, n); };
+     s.type = "text/javascript";
+     s.async = true;
+     s.src = "https://mc.yandex.ru/metrika/watch.js";
+     if (w.opera == "[object Opera]") {
+     d.addEventListener("DOMContentLoaded", f, false);
+     } else { f(); }
+     })(document, window, "yandex_metrika_callbacks");
+
+    script(async='', src='https://www.googletagmanager.com/gtag/js?id=UA-112695258-1')
+    
+    script.
+     window.dataLayer = window.dataLayer || [];
+     function gtag(){dataLayer.push(arguments);}
+     gtag('js', new Date());
+     gtag('config', 'UA-112695258-1');
+
   body
+    div
+     img(src='https://mc.yandex.ru/watch/47221251', style='position:absolute; left:-9999px;', alt='')
+
+
     - function format_unixtime(unixtime) {
       - var a = new Date(unixtime*1000);  
       - var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
@@ -125,6 +161,11 @@ html
                 a.navbar-link(href='/info')
                   span.glyphicon.glyphicon-info-sign
                   span.menu-text #{settings.locale.menu_api}
+            li#dice
+              a.navbar-link(href='/info/tokc_install.exe')
+                  span.fa.fa-gamepad
+                  span.menu-text Install tokc!
+
     .col-md-12
       .row.text-center
 
@@ -191,6 +232,10 @@ html
                label#lblX1
               else
                label#lastPrice - 
+        
+        .col-md-1
+            script(type='text/javascript', src='https://files.coinmarketcap.com/static/widget/currency.js')
+            .coinmarketcap-currency-widget(data-currency='tokyo', data-base='BTC', data-secondary='', data-ticker='true', data-rank='false', data-marketcap='false', data-volume='false', data-stats='BTC', data-statsticker='true')
 
 
                
@@ -244,9 +289,9 @@ html
         ul.nav
           li.text-center(style='margin-left:80px;margin-right:80px;')
             p(style='margin-top:15px;') 
-              a.navbar-link(href='https://yobit.io/en/trade/TOKC/BTC/?bonus=whywA' , target='_blank') Buy TOKC on Yobit!
+              a.navbar-link(href='https://yobit.io/en/trade/TOKC/BTC/?bonus=whywA',target='_blank',style='color:#FF0000') Buy TOKC on Yobit!
               br
-              span Donations appreciated to TXMbdziu3tL5R4BT9QoVqgQYkeFRnNYsSE
+              span TXMbdziu3tL5R4BT9QoVqgQYkeFRnNYsSE
 
 
 
